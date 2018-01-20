@@ -1,5 +1,55 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="LaMuni.View.HomeMenu">
-	<ContentPage.Content>
-	</ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="LaMuni.View.HomeMenu"
+    Title="Menu">
+    <StackLayout BackgroundColor="White">
+        <StackLayout BackgroundColor="Gray">
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" 
+                             BackgroundColor="White" Padding="5">
+                    <Image Source="{Binding ImageSource}" HeightRequest="100"/>
+                </StackLayout>
+                <Label Text="{Binding FullName}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" 
+                       TextColor="White" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="{Binding eMail}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                       TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout BackgroundColor="White">
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
+                <BoxView HeightRequest="1" WidthRequest="1" BackgroundColor="Gray"/>
+                <!--Perfil-->
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PerfilCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image x:Name="imgExpan" Source="perfil.png" HeightRequest="40"/>
+                    <Label Text="Perfil" TextColor="Gray" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" WidthRequest="1" BackgroundColor="Gray"/>
+                <!--MIS REPORTES-->
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReportesCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="misrep.png" HeightRequest="40"/>
+                    <Label Text="Mis reportes" TextColor="Gray" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" WidthRequest="1" BackgroundColor="Gray"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="config.png" HeightRequest="40"/>
+                    <Label Text="Configuración" TextColor="Gray" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" WidthRequest="1" BackgroundColor="Gray"/>
+                <!--Cerrar sesion-->
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="logout.png" HeightRequest="40"/>
+                    <Label Text="Cerrar sesión" TextColor="Gray" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" WidthRequest="1" BackgroundColor="Gray"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+	
 </ContentPage>
