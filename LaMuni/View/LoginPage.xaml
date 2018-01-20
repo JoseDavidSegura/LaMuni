@@ -1,5 +1,71 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="LaMuni.View.LoginPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="LaMuni.View.LoginPage"
+    BackgroundImage="fondo.png">
+	<StackLayout Padding="40">
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Frame VerticalOptions="Center" BackgroundColor="White" Opacity="0.9" 
+                HasShadow="true" CornerRadius="10" Padding="20" OutlineColor="Silver">
+                <StackLayout>
+                    <Label Text="La Muni" 
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Center"
+                        FontSize="36" 
+                        FontAttributes="Bold" 
+                        TextColor="Gray"/> 
+                    <BoxView HeightRequest="1" 
+                        WidthRequest="1" 
+                        BackgroundColor="Gray"/>
+                    <Entry Text="{Binding Email}" 
+                        Placeholder="eMail" 
+                        BackgroundColor="White"
+                        Keyboard="Email"
+                        x:Name="txtEmail"/>
+                    <Entry Text="{Binding Password}" 
+                        Placeholder="Contraseña" 
+                        IsPassword="true" 
+                        BackgroundColor="White"
+                        x:Name="txtPass"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch x:Name="RemSwitch" Toggled="Handle_Toggled" IsToggled="{Binding IsToggled}">
+                        </Switch>
+                        <Label Text="Recodar usuario?" 
+                            TextColor="Gray"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <ActivityIndicator
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}">
+                    </ActivityIndicator>
+                    <Button Text="Ingresar" 
+                        Command="{Binding LoginCommand}" 
+                        BackgroundColor="Gray" 
+                        FontSize="20" FontAttributes="Bold" 
+                        TextColor="White"/>
+                    <BoxView HeightRequest="1" 
+                        WidthRequest="1" 
+                        BackgroundColor="Gray"/>
+                    <StackLayout 
+                            Orientation="Horizontal" 
+                            HorizontalOptions="CenterAndExpand">
+                        <Label Text="No tiene cuenta?" 
+                            TextColor="Gray" 
+                            FontAttributes="Bold" 
+                            FontSize="17"/>
+                        <StackLayout>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding SigninCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="Cree una!" 
+                                    TextColor="Blue" 
+                                    FontAttributes="Bold" 
+                                    FontSize="17"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>
